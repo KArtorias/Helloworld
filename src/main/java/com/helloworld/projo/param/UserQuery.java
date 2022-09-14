@@ -4,12 +4,12 @@ import lombok.Data;
 
 @Data
 public class UserQuery {
-    private int offset = 0;
-    private int limit = 10;
+    private Integer offset = 0;
+    private Integer limit = 10;
     private String name;
 
     public UserQuery(){}
-    public UserQuery(int offset,int limit, String name){
+    public UserQuery(Integer offset,int limit, String name){
         this.limit = limit;
         this.offset = offset;
         this.name = name;
@@ -19,15 +19,15 @@ public class UserQuery {
         this.name = name;
     }
 
-    public void setLimit(int limit) {
+    public void setLimit(Integer limit) {
         this.limit = limit;
     }
 
-    public void setOffset(int offset) {
+    public void setOffset(Integer offset) {
         this.offset = offset;
     }
 
-    public int getOffset() {
+    public Integer getOffset() {
         return offset;
     }
 
@@ -35,7 +35,16 @@ public class UserQuery {
         return name;
     }
 
-    public int getLimit() {
+    public Integer getLimit() {
         return limit;
+    }
+
+    @Override
+    public String toString() {
+        return "UserQuery{" +
+                "offset=" + offset +
+                ", limit=" + limit +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

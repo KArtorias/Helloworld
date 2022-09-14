@@ -1,6 +1,7 @@
 package com.helloworld.controller;
 
 import com.helloworld.projo.User;
+import com.helloworld.projo.UserResult;
 import com.helloworld.projo.param.UserQuery;
 import com.helloworld.service.DaoService;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,9 @@ public class DaoController {
     private DaoService daoService;
 
     @GetMapping("/user")
-    public List<User> getUser(@RequestParam(value = "limit", required = false) int limit,
-                              @RequestParam(value = "offset", required = false) int offset,
-                              @RequestParam(value = "name",required = false, defaultValue = "def_name") String name){
+    public UserResult getUser(@RequestParam(value = "limit", required = false) Integer limit,
+                              @RequestParam(value = "offset", required = false) Integer offset,
+                              @RequestParam(value = "name",required = false, defaultValue = "") String name){
         UserQuery userQuery = new UserQuery();
         userQuery.setOffset(offset);
         userQuery.setLimit(limit);
