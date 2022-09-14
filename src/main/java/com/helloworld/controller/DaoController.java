@@ -3,10 +3,8 @@ package com.helloworld.controller;
 import com.helloworld.projo.User;
 import com.helloworld.projo.param.UserQuery;
 import com.helloworld.service.DaoService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -27,5 +25,15 @@ public class DaoController {
 
         System.out.println("user query: "+ userQuery.toString());
         return daoService.queryUserList(userQuery);
+    }
+
+    @GetMapping("/user_by_name")
+    public User getUser(@RequestParam(value = "name",required = false, defaultValue = "def_name") String name){
+        return daoService.queryUserByName(name);
+    }
+
+    @PostMapping("/user")
+    public User addUser(@RequestBody User user){
+        return daoService.addUser(user);
     }
 }

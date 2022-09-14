@@ -25,4 +25,18 @@ public class DaoServiceImpl implements DaoService {
 
         return userDao.queryUserList(query);
     }
+
+    @Override
+    public User queryUserByName(String name) {
+        return userDao.queryUserByName(name);
+    }
+
+    @Override
+    public User addUser(User user) {
+        int result = userDao.addUser(user);
+        if (result != 1) {
+            System.out.println("addUser failex");
+        }
+        return user;
+    }
 }

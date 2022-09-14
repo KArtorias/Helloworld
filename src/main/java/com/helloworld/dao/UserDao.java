@@ -2,7 +2,9 @@ package com.helloworld.dao;
 
 import com.helloworld.projo.User;
 import com.helloworld.projo.param.UserQuery;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.List;
 public interface UserDao {
     List<User> queryUserList(UserQuery query);
 
-    User queryUserById(int id);
+    User queryUserByName(String name);
 
     int addUser(User user);
 

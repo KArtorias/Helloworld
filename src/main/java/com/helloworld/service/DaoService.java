@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface DaoService {
     List<User> queryUserList(UserQuery query);
+
+    User queryUserByName(String name);
+
+    User addUser(User user);
 }

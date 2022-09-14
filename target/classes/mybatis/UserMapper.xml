@@ -12,4 +12,10 @@
         </where>
         limit ${offset},${limit}
     </select>
+    <select id="queryUserByName" parameterType="String" resultType="com.helloworld.projo.User" >
+        select * from user.users where `name`=#{name}
+    </select>
+    <insert id="addUser" parameterType="com.helloworld.projo.User">
+        insert into user.users (`name`, `sex`, `age`) values(#{name}, #{sex}, #{age})
+    </insert>
 </mapper>
