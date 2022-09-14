@@ -1,6 +1,6 @@
 package com.helloworld.service.impl;
 
-import com.helloworld.model.User;
+import com.helloworld.projo.User;
 import com.helloworld.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class AdminServiceImpl implements UserService {
 
     @Override
     public User addUser(User u) {
-        u.name = "admin:"+u.name;
+        u.setName("admin:"+u.getName());
         System.out.println("AdminServiceImpl addUser: "+u.toString());
         return u;
     }

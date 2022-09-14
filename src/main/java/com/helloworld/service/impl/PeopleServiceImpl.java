@@ -1,6 +1,6 @@
 package com.helloworld.service.impl;
 
-import com.helloworld.model.User;
+import com.helloworld.projo.User;
 import com.helloworld.service.PeopleService;
 import org.springframework.stereotype.Service;
 

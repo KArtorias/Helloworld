@@ -1,6 +1,6 @@
 package com.helloworld.controller;
 
-import com.helloworld.model.User;
+import com.helloworld.projo.User;
 import com.helloworld.service.PeopleService;
 import com.helloworld.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.helloworld.controller;
 
-import com.helloworld.model.User;
+import com.helloworld.projo.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
