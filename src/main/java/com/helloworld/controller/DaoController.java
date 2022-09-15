@@ -3,6 +3,7 @@ package com.helloworld.controller;
 import com.helloworld.projo.User;
 import com.helloworld.projo.UserResult;
 import com.helloworld.projo.param.UserQuery;
+import com.helloworld.projo.param.UserUpdate;
 import com.helloworld.service.DaoService;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,5 +37,17 @@ public class DaoController {
     @PostMapping("/user")
     public User addUser(@RequestBody User user){
         return daoService.addUser(user);
+    }
+
+    @DeleteMapping("/user")
+    public boolean getUser(@RequestParam(value = "id", required = false) Integer id){
+
+        return daoService.deleteUserById(id);
+    }
+
+    @PutMapping("/user")
+    public User updateUserById(@RequestBody UserUpdate userUpdate){
+        System.out.println("updateUserById "+userUpdate.toString());
+        return daoService.updateUserById(userUpdate);
     }
 }

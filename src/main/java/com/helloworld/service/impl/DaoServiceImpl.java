@@ -4,11 +4,11 @@ import com.helloworld.dao.UserDao;
 import com.helloworld.projo.User;
 import com.helloworld.projo.UserResult;
 import com.helloworld.projo.param.UserQuery;
+import com.helloworld.projo.param.UserUpdate;
 import com.helloworld.service.DaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service
@@ -56,5 +56,23 @@ public class DaoServiceImpl implements DaoService {
             System.out.println("addUser failex");
         }
         return user;
+    }
+
+    @Override
+    public boolean deleteUserById(Integer id) {
+        int result = userDao.deleteUser(id);
+        if (result > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public User updateUserById(UserUpdate userUpdate) {
+        int result = userDao.updateUser(userUpdate);
+        if (result == 0) {
+            return null;
+        }
+        return userDao.queryUserById(userUpdate.getId());
     }
 }

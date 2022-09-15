@@ -25,7 +25,32 @@
     <select id="queryUserByName" parameterType="String" resultType="com.helloworld.projo.User" >
         select * from user.users where `name`=#{name} limit 1
     </select>
+    <select id="queryUserById" parameterType="Integer" resultType="com.helloworld.projo.User" >
+        select * from user.users where `id`=#{id} limit 1
+    </select>
+
     <insert id="addUser" parameterType="com.helloworld.projo.User">
         insert into user.users (`name`, `sex`, `age`) values(#{name}, #{sex}, #{age})
     </insert>
+
+    <update id="updateUser" parameterType="com.helloworld.projo.param.UserUpdate">
+        update user.users
+        <set>
+            <if test="name != ''">
+                name=#{name},
+            </if>
+            <if test="sex != ''">
+                sex=#{sex},
+            </if>
+            <if test="age > 0">
+                age=#{age},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="Integer" >
+        DELETE FROM user.users
+        WHERE id=#{id};
+    </delete>
 </mapper>

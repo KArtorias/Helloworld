@@ -2,6 +2,7 @@ package com.helloworld.dao;
 
 import com.helloworld.projo.User;
 import com.helloworld.projo.param.UserQuery;
+import com.helloworld.projo.param.UserUpdate;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -14,9 +15,11 @@ public interface UserDao {
 
     User queryUserByName(String name);
 
+    User queryUserById(Integer id);
+
     Integer addUser(User user);
 
-    Integer updateUser(User user);
+    Integer updateUser(UserUpdate userUpdate);
 
-    Integer deleteUser(int id);
+    Integer deleteUser(Integer id);
 }
